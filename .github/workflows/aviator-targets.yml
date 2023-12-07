@@ -11,6 +11,11 @@ jobs:
          working-directory: .
     steps:
       - uses: actions/checkout@v4
+        with:
+          # using partial clone to make sure we fetch what we need
+          # when comparing base and head.
+          filter: 'blob:none'
+          fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
